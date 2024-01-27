@@ -4,7 +4,6 @@ Main file
 """
 from typing import Tuple
 import csv
-import math
 from typing import List
 
 
@@ -19,7 +18,6 @@ def index_range(page: int, page_size: int) -> Tuple:
     start_index = (page - 1) * page_size
     end_index = page * page_size
     return (start_index, end_index)
-
 
 
 class Server:
