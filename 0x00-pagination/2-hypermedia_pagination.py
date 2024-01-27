@@ -69,11 +69,19 @@ negative values"
             Return - dictionary with the relevant data
         """
         data_dictionary = {}
-        data_dictionary['data'] = self.get_page(page, page_size)
-        data_dictionary['page_size'] = page_size
+        data_dictionary['page_size'] = len(self.get_page(page, page_size))
         data_dictionary['page'] = page
+        data_dictionary['data'] = self.get_page(page, page_size)
         total_pages = (len(self.__dataset) + page_size - 1) // page_size
-        data_dictionary['next_page'] = page + 1
-        data_dictionary['prev_page'] = page - 1
+        if total_pages <= page + 1:
+            next_page = None
+        else:
+            next_page = page + 1
+        data_dictionary['next_page'] = next_page
+        if page - 1 < 1:
+            prev_page = None
+        else:
+            prev_page = page - 1
+        data_dictionary['prev_page'] = prev_page
         data_dictionary['total_pages'] = total_pages
         return data_dictionary
