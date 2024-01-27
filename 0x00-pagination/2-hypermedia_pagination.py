@@ -69,9 +69,9 @@ negative values"
             Return - dictionary with the relevant data
         """
         data_dictionary = {}
+        data_dictionary['data'] = self.get_page(page, page_size)
         data_dictionary['page_size'] = page_size
         data_dictionary['page'] = page
-        data_dictionary['data'] = self.get_page(page, page_size)
         total_pages = (len(self.__dataset) + page_size - 1) // page_size
         data_dictionary['next_page'] = page + 1
         data_dictionary['prev_page'] = page - 1
