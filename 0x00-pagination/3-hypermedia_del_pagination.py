@@ -41,6 +41,8 @@ class Server:
         """ to update indices and return dataset"""
         assert index > 0 and index < len(self.__dataset), "AssertionError \
 raised when out of range"
+        if index is None:
+            index = 0
         data = self.__dataset
         data = [value for item, value in self.__indexed_dataset.items()]
         data_dict = {}
