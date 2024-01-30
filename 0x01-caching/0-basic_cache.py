@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 0-main """
+""" defines main cache class """
 from base_caching import BaseCaching
 
 
