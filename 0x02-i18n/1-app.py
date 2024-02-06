@@ -17,7 +17,7 @@ app.config.from_object(Config)
 
 
 @app.route('/')
-def hello():
+def hello() -> str:
     """ home page """
     return render_template('1-index.html')
 
