@@ -2,7 +2,7 @@
 """ run app module """
 from flask import Flask, render_template, request, g
 from flask_babel import Babel
-from typing import Dict
+from typing import Dict, Union
 app = Flask(__name__)
 babel = Babel(app)
 
@@ -34,7 +34,7 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-def get_user() -> Dict:
+def get_user() -> Union[Dict[str, str], None]:
     """ gets user """
     if 'login_as' in request.args:
         return users.get(int(request.args['login_as']))
