@@ -37,10 +37,7 @@ def get_locale():
 def get_user() -> Dict:
     """ gets user """
     if 'login_as' in request.args:
-        for key, value in users.items():
-            if int(request.args['login_as']) == key:
-                return value
-    return None
+        return users.get(int(request.args['login_as']))
 
 
 @app.before_request
@@ -52,8 +49,6 @@ def before_request():
 @app.route('/')
 def hello() -> str:
     """ home page """
-    if g.user:
-        return render_template('5-index.html', user=g.user)
     return render_template('5-index.html')
 
 
