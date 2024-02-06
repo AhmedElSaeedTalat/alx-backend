@@ -40,6 +40,8 @@ def get_user() -> Union[Dict[str, str], None]:
     """ gets user """
     if 'login_as' in request.args:
         return users.get(int(request.args['login_as']))
+    else:
+        return None
 
 
 @app.before_request
