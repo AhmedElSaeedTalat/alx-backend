@@ -38,7 +38,7 @@ def get_locale():
 def get_user() -> Union[Dict[str, str], None]:
     """ gets user """
     if 'login_as' in request.args:
-        return users.get(int(request.args['login_as']))
+        return users.get(int(request.args['login_as']), 0)
 
 
 @app.before_request
