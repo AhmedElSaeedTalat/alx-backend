@@ -39,7 +39,6 @@ def get_user() -> Dict:
     if 'login_as' in request.args:
         for key, value in users.items():
             if int(request.args['login_as']) == key:
-                print('yes user was found')
                 return value
     return None
 
